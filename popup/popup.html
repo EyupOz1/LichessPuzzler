@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lichess Puzzler Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>&#9822; Lichess Puzzler</h1>
+    </header>
+
+    <section class="setting-group">
+      <label class="toggle-row">
+        <span>Enabled</span>
+        <input type="checkbox" id="enabled" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </section>
+
+    <section class="setting-group">
+      <h2>Trigger Mode</h2>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="triggerMode" value="newtab" checked>
+          <span class="radio-label">New Tab</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="triggerMode" value="timer">
+          <span class="radio-label">Timer</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="setting-group" id="timer-settings">
+      <h2>Timer Interval</h2>
+      <div class="timer-presets" id="timer-presets">
+        <button data-minutes="15">15m</button>
+        <button data-minutes="30">30m</button>
+        <button data-minutes="60" class="active">1h</button>
+        <button data-minutes="120">2h</button>
+        <button data-minutes="240">4h</button>
+        <button data-minutes="custom" id="custom-timer-btn">...</button>
+      </div>
+      <div class="custom-timer" id="custom-timer" style="display:none;">
+        <input type="number" id="customMinutes" min="1" max="1440" placeholder="minutes">
+        <span class="timer-unit">min</span>
+      </div>
+    </section>
+
+    <section class="setting-group" id="probability-settings">
+      <h2>New Tab Probability</h2>
+      <div class="slider-row">
+        <input type="range" id="newTabProbability" min="10" max="100" step="10" value="30">
+        <span id="probability-value">30%</span>
+      </div>
+    </section>
+
+    <section class="setting-group">
+      <h2>Puzzle Themes</h2>
+      <p class="hint">Select one or more. A random theme is picked each time.</p>
+      <div id="themes-grid" class="themes-grid"></div>
+    </section>
+
+    <section class="setting-group">
+      <h2>Color Theme</h2>
+      <div class="color-swatches" id="color-swatches"></div>
+    </section>
+
+    <div id="status" class="status"></div>
+  </div>
+
+  <script src="../constants.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
