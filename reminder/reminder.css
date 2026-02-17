@@ -140,3 +140,21 @@ body {
   background: var(--surface-hover);
   color: #e0e0e0;
 }
+
+.btn-disable {
+  margin-top: 24px;
+  padding: 8px 16px;
+  background: transparent;
+  color: #707090;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  outline: none;
+}
+
+.btn-disable:hover {
+  color: #e0e0e0;
+  background: rgba(255, 255, 255, 0.05);
+}

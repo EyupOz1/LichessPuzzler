@@ -19,4 +19,9 @@
   document.getElementById('skip-btn').addEventListener('click', () => {
     window.close();
   });
+
+  document.getElementById('disable-btn').addEventListener('click', async () => {
+    await chrome.storage.sync.set({ enabled: false });
+    window.close();
+  });
 })();
