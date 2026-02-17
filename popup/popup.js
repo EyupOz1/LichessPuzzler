@@ -9,23 +9,32 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function buildThemeGrid() {
   var grid = document.querySelector('#themes-grid');
-  grid.innerHTML = THEMES.map(t =>
-    '<label class="theme-chip">' +
-      '<input type="checkbox" value="' + t.id + '">' +
-      '<span>' + t.label + '</span>' +
-    '</label>'
-  ).join('');
+  grid.replaceChildren();
+  THEMES.forEach(t => {
+    var label = document.createElement('label');
+    label.className = 'theme-chip';
+    var input = document.createElement('input');
+    input.type = 'checkbox';
+    input.value = t.id;
+    var span = document.createElement('span');
+    span.textContent = t.label;
+    label.appendChild(input);
+    label.appendChild(span);
+    grid.appendChild(label);
+  });
 }
 
 function buildColorSwatches() {
   var container = document.querySelector('#color-swatches');
-  var html = '';
+  container.replaceChildren();
   Object.keys(COLOR_THEMES).forEach(id => {
-    var c = COLOR_THEMES[id].accent;
-    html += '<div class="color-swatch" data-theme="' + id + '" ' +
-            'style="background:' + c + ';" title="' + id + '"></div>';
+    var swatch = document.createElement('div');
+    swatch.className = 'color-swatch';
+    swatch.dataset.theme = id;
+    swatch.style.background = COLOR_THEMES[id].accent;
+    swatch.title = id;
+    container.appendChild(swatch);
   });
-  container.innerHTML = html;
 }
 
 async function loadSettings() {
