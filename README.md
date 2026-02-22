@@ -48,6 +48,15 @@ Settings are saved to `chrome.storage.sync` and persist across sessions.
 | `alarms`   | Timer-based reminders |
 | `tabs`     | Open and redirect tabs |
 
+## Privacy Policy
+
+Lichess Puzzler does not collect, transmit, or share any user data.
+
+- **No personal data is collected.** The extension does not access your browsing history, identity, or any personal information.
+- **Local settings only.** Your preferences (trigger mode, timer interval, puzzle themes, color theme) are stored exclusively in `chrome.storage.sync`, which is managed by your own browser and Google account. This data never leaves your device to any server controlled by this extension.
+- **No external requests.** The extension makes no network requests of its own. Clicking "Start Puzzle" simply navigates your browser to `lichess.org` — the same as typing the URL yourself.
+- **No analytics or tracking.** There is no telemetry, crash reporting, or usage tracking of any kind.
+
 ## License
 
 MIT
